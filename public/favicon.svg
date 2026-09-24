@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Vic Log">
+  <rect width="32" height="32" rx="3" fill="#292827"/>
+  <path d="M3 3h26v26H3z" fill="#f4f1e9"/>
+  <path d="M6.5 6.5h5l4.7 13 4.6-13h4.7L18.4 26h-4.8L6.5 6.5Z" fill="#982c24"/>
+</svg>
