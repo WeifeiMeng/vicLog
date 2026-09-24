@@ -1,0 +1,109 @@
+.content {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 720px;
+}
+
+.content > :first-child {
+  margin-top: 0;
+}
+
+.content h2,
+.content h3,
+.content h4 {
+  line-height: 1.3;
+  margin: 2.6em 0 0.8em;
+}
+
+.content h2 {
+  border-bottom: 1px solid var(--line);
+  font-size: 1.65rem;
+  padding-bottom: 0.4em;
+}
+
+.content h3 {
+  font-size: 1.3rem;
+}
+
+.content p,
+.content ul,
+.content ol,
+.content blockquote {
+  margin: 1.25em 0;
+}
+
+.content li + li {
+  margin-top: 0.4em;
+}
+
+.content blockquote {
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+  font-style: italic;
+  margin-left: 0;
+  padding: 0.15rem 0 0.15rem 1.25rem;
+}
+
+.content a {
+  color: var(--accent);
+  overflow-wrap: anywhere;
+}
+
+.content code {
+  background: rgba(41, 40, 39, 0.08);
+  border-radius: 0.2rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88em;
+  padding: 0.15em 0.35em;
+}
+
+.content pre {
+  background: #262423;
+  border-radius: 0.25rem;
+  color: #f2eee5;
+  line-height: 1.6;
+  margin: 1.6rem 0;
+  overflow-x: auto;
+  padding: 1.2rem 1.35rem;
+}
+
+.content pre code {
+  background: transparent;
+  color: inherit;
+  font-size: 0.86rem;
+  padding: 0;
+}
+
+.content table {
+  border-collapse: collapse;
+  display: block;
+  margin: 1.75rem 0;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.content th,
+.content td {
+  border: 1px solid var(--line);
+  padding: 0.55rem 0.8rem;
+  text-align: left;
+}
+
+.content th {
+  background: rgba(41, 40, 39, 0.05);
+}
+
+@media (max-width: 520px) {
+  .content {
+    font-size: 1rem;
+    line-height: 1.78;
+  }
+
+  .content pre {
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+    padding: 1rem;
+  }
+}

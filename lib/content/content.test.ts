@@ -101,6 +101,19 @@ describe("loadContent", () => {
     expect(() => loadContent(root)).toThrow(/broken\.md: invalid or missing title/);
   });
 
+  test("rejects a post filename that cannot be used as a URL-safe slug", async () => {
+    const root = await createContentRoot();
+    await writePost(
+      root,
+      "notes#draft.md",
+      'title: Unsafe slug\ndate: "2026-03-04"\nexcerpt: Unsafe slug\npublished: true',
+    );
+
+    expect(() => loadContent(root)).toThrow(
+      /notes#draft\.md: invalid post slug "notes#draft"/,
+    );
+  });
+
   test("reports a useful file-aware error when site.md is missing", async () => {
     const root = await mkdtemp(path.join(tmpdir(), "vic-log-content-"));
     temporaryRoots.push(root);

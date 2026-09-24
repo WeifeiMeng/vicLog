@@ -1,0 +1,56 @@
+.card {
+  border-top: 1px solid var(--line);
+  padding: 2rem 0 2.25rem;
+}
+
+.meta {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  font-weight: 650;
+  gap: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.category::before {
+  content: "·";
+  margin-right: 0.65rem;
+}
+
+.title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin: 0.8rem 0 0;
+}
+
+.title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.title a:hover {
+  color: var(--accent);
+}
+
+.excerpt {
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0.9rem 0 1rem;
+  max-width: 36rem;
+}
+
+.readMore {
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+.readMore::after {
+  content: " →";
+}

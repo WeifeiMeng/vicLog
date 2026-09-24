@@ -45,10 +45,12 @@ export function loadContent(contentRoot?: string): ContentCollection {
 
   const posts = postFiles
     .map((postFile) => {
+      const slug = path.basename(postFile, ".md");
+      assertValidPostSlug(slug, postFile);
       const parsedPost = parseMarkdown(postFile);
       return {
         ...validatePost(parsedPost.data, postFile),
-        slug: path.basename(postFile, ".md"),
+        slug,
         body: parsedPost.content,
       };
     })
@@ -131,6 +133,14 @@ function parseMarkdown(file: string): matter.GrayMatterFile<string> {
     });
   } catch (cause) {
     throw new Error(`${file}: invalid YAML frontmatter`, { cause });
+  }
+}
+
+function assertValidPostSlug(slug: string, file: string): void {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+    throw new Error(
+      `${file}: invalid post slug "${slug}" (use a lowercase ASCII kebab-case filename)`,
+    );
   }
 }
 
