@@ -3,6 +3,8 @@ import { getPosts } from "@/lib/content";
 
 import styles from "./page.module.css";
 
+export const dynamic = "force-dynamic";
+
 export default function HomePage() {
   const posts = getPosts();
 
