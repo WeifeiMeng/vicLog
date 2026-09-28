@@ -1,0 +1,385 @@
+.loginPage {
+  align-items: center;
+  display: grid;
+  min-height: 100vh;
+  padding: 2rem;
+  place-items: center;
+}
+
+.loginCard {
+  background: #faf8f2;
+  border: 1px solid var(--line);
+  box-shadow: 12px 12px 0 #ded8cc;
+  max-width: 430px;
+  padding: 2.75rem;
+  width: 100%;
+}
+
+.loginCard h1,
+.brand h1,
+.editorHeader h2,
+.welcome h2 {
+  margin: 0;
+}
+
+.loginCard > p:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.55rem;
+}
+
+.loginForm {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1.75rem 0;
+}
+
+.loginForm label,
+.metadataGrid span,
+.modeBar > span {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.loginForm input,
+.metadataGrid input,
+.metadataGrid textarea,
+.search,
+.bodyInput {
+  background: #fffefb;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  color: var(--ink);
+  padding: 0.75rem 0.85rem;
+  width: 100%;
+}
+
+.loginForm button,
+.actions button:not(.deleteButton),
+.newButton {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 750;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.loginForm button:disabled,
+.actions button:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
+.backLink,
+.blogLink {
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.admin {
+  background: #f8f6f0;
+  display: grid;
+  grid-template-columns: 310px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #eeeae1;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+}
+
+.brand,
+.editorHeader,
+.modeBar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.brand p {
+  color: var(--accent);
+  font-size: 0.65rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  margin: 0 0 0.25rem;
+}
+
+.brand h1 {
+  font-size: 1.75rem;
+}
+
+.textButton,
+.filters button,
+.modeBar button,
+.deleteButton {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.newButton {
+  display: block;
+  margin: 1.5rem 0 1rem;
+}
+
+.search {
+  font-size: 0.82rem;
+}
+
+.filters {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0.85rem 0;
+}
+
+.filters button,
+.modeBar button {
+  border: 1px solid transparent;
+  font-size: 0.72rem;
+  padding: 0.4rem 0.55rem;
+}
+
+.filters button[aria-pressed="true"],
+.modeBar button[aria-pressed="true"] {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.postList {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0 -0.5rem;
+  overflow-y: auto;
+  padding: 0.25rem 0.5rem;
+}
+
+.postList a {
+  border-left: 3px solid transparent;
+  color: var(--ink);
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.75rem;
+  text-decoration: none;
+}
+
+.postList a:hover,
+.postList .activePost {
+  background: #fffdf7;
+  border-left-color: var(--accent);
+}
+
+.postList span {
+  font-family: var(--serif);
+  font-weight: 700;
+}
+
+.postList small,
+.emptyList {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.blogLink {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.workspace {
+  min-width: 0;
+  padding: 2.25rem clamp(1.5rem, 4vw, 4rem) 4rem;
+}
+
+.welcome {
+  margin: 20vh auto 0;
+  max-width: 600px;
+  text-align: center;
+}
+
+.welcome h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.welcome > p:last-child {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.editor {
+  margin: 0 auto;
+  max-width: 1120px;
+}
+
+.editorHeader {
+  border-bottom: 1px solid var(--line);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+}
+
+.editorHeader h2 {
+  font-size: clamp(1.75rem, 3vw, 2.7rem);
+}
+
+.actions {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.deleteButton {
+  border: 1px solid #b88983;
+  color: var(--accent);
+  padding: 0.7rem 1rem;
+}
+
+.error,
+.success {
+  border-left: 3px solid;
+  font-size: 0.82rem;
+  margin: 1rem 0;
+  padding: 0.65rem 0.85rem;
+}
+
+.error {
+  background: #f6e3df;
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+.success {
+  background: #e5eee3;
+  border-color: #52734d;
+  color: #365033;
+}
+
+.metadataGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 2fr 1.25fr 1fr 1fr;
+}
+
+.metadataGrid label {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.fullField {
+  grid-column: 1 / -1;
+}
+
+.publishField {
+  align-items: center;
+  display: flex !important;
+  grid-column: 1 / -1;
+  grid-template-columns: auto 1fr;
+}
+
+.publishField input {
+  accent-color: var(--accent);
+  width: auto;
+}
+
+.modeBar {
+  border-bottom: 1px solid var(--line);
+  margin-top: 1.75rem;
+  padding-bottom: 0.6rem;
+}
+
+.contentEditor {
+  min-height: 54vh;
+  padding-top: 1rem;
+}
+
+.contentEditor.split {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bodyInput {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  line-height: 1.65;
+  min-height: 54vh;
+  resize: vertical;
+}
+
+.preview {
+  background: #fffdf7;
+  border: 1px solid var(--line);
+  min-height: 54vh;
+  overflow-wrap: anywhere;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+@media (max-width: 900px) {
+  .admin {
+    display: block;
+  }
+
+  .sidebar {
+    border-bottom: 1px solid var(--line);
+    border-right: 0;
+    height: auto;
+    max-height: 46vh;
+    position: static;
+  }
+
+  .blogLink {
+    display: none;
+  }
+
+  .metadataGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .loginPage,
+  .workspace {
+    padding: 1rem;
+  }
+
+  .loginCard {
+    box-shadow: 6px 6px 0 #ded8cc;
+    padding: 1.5rem;
+  }
+
+  .editorHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .metadataGrid,
+  .contentEditor.split {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .fullField,
+  .publishField {
+    grid-column: auto;
+  }
+
+  .modeBar button:last-child {
+    display: none;
+  }
+}

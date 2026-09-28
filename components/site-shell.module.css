@@ -13,6 +13,10 @@
   padding: 4.75rem 0;
 }
 
+.adminMain {
+  min-height: 100vh;
+}
+
 @media (max-width: 760px) {
   .shell {
     display: block;
