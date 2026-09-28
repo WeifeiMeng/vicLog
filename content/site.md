@@ -4,7 +4,7 @@ author: Meng Weifei
 tagline: "做一个简单、易读的AI工程技术文档中心， 同时夹带一点自己的私货"
 avatar: /avatar.jpg
 email: "vicmeng.dog@gmail.com"
-github: "meng"
+github: "https://github.com/WeifeiMeng/"
 ---
 
 这里是 Meng Weifei 的个人博客，记录关于工程、产品与思考的片段。

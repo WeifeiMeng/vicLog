@@ -1,5 +1,5 @@
 ---
-title: Deepseek Harness 的背后
+title: Cordis —— Deepseek Harness 的幕后
 date: 2026-09-28
 category: 技术
 excerpt: Cordis为什么会成为Deepseek Harness的核心技术框架？优势在哪里
