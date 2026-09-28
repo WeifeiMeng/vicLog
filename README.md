@@ -30,7 +30,7 @@ npm start                # 在本地预览已构建的 out/
 
 ```yaml
 ---
-name: Vic Log
+name: Vic's Log
 author: Meng Weifei
 tagline: 关于工程、产品与思考
 avatar: /avatar.jpg
