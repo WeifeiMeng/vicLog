@@ -1,6 +1,6 @@
 # Vic Log 本地启动指南
 
-本文说明如何在本机启动、预览和修改 Vic Log。
+本文说明如何在本机启动、预览和修改 Vic Log，以及如何使用 `/write` 管理 Markdown 文章。
 
 ## 1. 环境准备
 
@@ -32,6 +32,30 @@ npm ci
 
 ## 3. 启动开发服务器
 
+首次使用写作后台时，先创建本地环境配置：
+
+```bash
+cp .env.example .env.local
+```
+
+编辑 `.env.local`，至少替换以下两个值：
+
+```dotenv
+WRITE_PASSWORD=你的本地写作密码
+SESSION_SECRET=至少32个随机字符
+```
+
+`CONTENT_ROOT` 和 `REPO_ROOT` 通常不需要设置，默认指向当前仓库。`.env.local` 已被 Git 忽略，不要把真实密码提交到仓库。
+
+写作后台保存文章时会创建本地 Git 提交，因此还需要配置 Git 作者信息：
+
+```bash
+git config user.name "Your Name"
+git config user.email "you@example.com"
+```
+
+然后启动开发服务器：
+
 ```bash
 npm run dev
 ```
@@ -51,6 +75,9 @@ http://localhost:3000
 - `/archive/`：文章归档
 - `/posts/<slug>/`：文章详情
 - `/rss.xml`：RSS
+- `/write`：写作后台（不会出现在博客导航中）
+
+访问 `/write` 后输入 `WRITE_PASSWORD`。后台支持文章搜索、新建、编辑、Markdown 预览、草稿/发布、slug 重命名和删除。每次保存只提交相关的 `content/posts/*.md`，不会执行 `git push`，也不会把其他已暂存或未暂存文件带进文章提交。
 
 ## 4. 修改博客资料
 
@@ -116,7 +143,7 @@ npx tsc --noEmit --incremental false
 
 测试主要覆盖 Markdown 内容校验、排序、草稿过滤和 RSS 生成。
 
-## 7. 构建并预览静态站点
+## 7. 构建并启动生产模式
 
 普通本地构建：
 
@@ -124,13 +151,13 @@ npx tsc --noEmit --incremental false
 npm run build
 ```
 
-构建产物位于 `out/`。本地预览构建结果：
+构建完成后启动 Next.js Node 服务：
 
 ```bash
 npm start
 ```
 
-`npm start` 会显示实际预览地址；如果 3000 端口被占用，会自动使用其他端口。
+`npm start` 默认监听 3000 端口。生产模式也需要提供 `WRITE_PASSWORD` 和 `SESSION_SECRET`，否则公开博客可以访问，但写作后台无法登录。
 
 构建线上版本前，必须设置真实站点地址，否则 RSS 会使用本地占位域名：
 
@@ -138,7 +165,9 @@ npm start
 NEXT_PUBLIC_SITE_URL=https://blog.your-domain.com npm run build
 ```
 
-该值必须是完整的 HTTP(S) origin，不能包含路径、查询参数、片段或账号密码。
+该值必须是完整的 HTTP(S) origin，不能包含路径、查询参数、片段或账号密码。项目现在是长期运行的 Node 应用，不再生成 `out/` 静态目录。
+
+当前阶段只完成本地运行：没有 Docker/Nginx 配置，不会连接 `123.56.122.63`，也不会推送远程仓库。
 
 ## 8. 常见问题
 
@@ -160,4 +189,8 @@ NEXT_PUBLIC_SITE_URL=https://blog.your-domain.com npm run build
 
 ### 端口被占用
 
-开发服务器或静态预览会选择空闲端口。直接使用终端中显示的 URL，不要固定假设为 3000。
+开发服务器会选择空闲端口。生产模式可用 `npm start -- -p 3001` 指定其他端口。
+
+### 保存文章时 Git 报错
+
+确认当前目录是 Git 仓库，并已配置 `user.name` 和 `user.email`。保存失败时后台会恢复文章文件；仓库里其他 staged/unstaged 改动不会被清理。

@@ -20,7 +20,11 @@ export function loadWriteConfig(
   if (!sessionSecret || sessionSecret.length < 32) {
     throw new WriteError("CONFIG_ERROR", "SESSION_SECRET 必须至少包含 32 个字符");
   }
-  const repoRoot = path.resolve(environment.REPO_ROOT ?? process.cwd());
-  const contentRoot = path.resolve(environment.CONTENT_ROOT ?? path.join(repoRoot, "content"));
+  const repoRoot = path.resolve(
+    /* turbopackIgnore: true */ environment.REPO_ROOT ?? process.cwd(),
+  );
+  const contentRoot = path.resolve(
+    /* turbopackIgnore: true */ environment.CONTENT_ROOT ?? path.join(repoRoot, "content"),
+  );
   return { password, sessionSecret, contentRoot, repoRoot };
 }
