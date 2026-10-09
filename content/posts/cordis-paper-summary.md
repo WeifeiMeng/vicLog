@@ -200,6 +200,117 @@ Memory v2 加入
 
 ---
 
+## 7. 实际案例：Embedding Provider 与 Consumer 的动态协作
+
+假设 Harness 中有两个彼此独立的插件：
+
+- 插件 A 提供 `embedding` 能力
+- 插件 B 依赖 `embedding` 完成文本向量化
+
+在传统插件系统里，B 可能会直接导入并调用 A。Cordis 的做法不同：A 和 B 不需要知道彼此，它们只通过 Context 约定同一个 capability key。
+
+```text
+Plugin A ── provides ──► embedding ◄── requires ── Plugin B
+                              ▲
+                              │
+                           Context
+```
+
+### Provider：注册能力
+
+插件 A 创建具体的 Embedding 实现，并通过 `ctx.set()` 注册到 Context：
+
+```ts
+const pluginA = {
+  async apply(ctx) {
+    const embeddingService = {
+      async embed(text) {
+        return model.encode(text)
+      }
+    }
+
+    ctx.set('embedding', embeddingService)
+  }
+}
+```
+
+这里的 `ctx.set()` 不只是一次普通赋值，也是一个 **revertible effect**。Runtime 会记录对应的撤销操作，因此插件 A 被卸载时，`embedding` 能力也会自动从 Context 中移除。
+
+### Consumer：声明依赖
+
+插件 B 不直接依赖插件 A，而是在 `inject` 中声明自己需要 `embedding`：
+
+```ts
+const pluginB = {
+  inject: ['embedding'],
+
+  async apply(ctx) {
+    const embedding = ctx.get('embedding')
+    const vector = await embedding.embed('hello')
+  }
+}
+```
+
+如果 B 先注册，而 A 尚未出现，Cordis 不会让 B 进入正常工作状态。B 会保持 `INACTIVE`，等待依赖满足：
+
+```text
+embedding 不存在
+        ↓
+Plugin B 保持 INACTIVE
+```
+
+当 A 注册 `embedding` 后，Context 的依赖存储发生变化。Runtime 会通知所有声明了该依赖的组件，并刷新 B 的生命周期：
+
+```text
+ctx.set("embedding", service)
+        ↓
+Context notify("embedding")
+        ↓
+Plugin B 的依赖得到满足
+        ↓
+INACTIVE → LOADING → ACTIVE
+```
+
+### Provider 卸载与热替换
+
+当插件 A 被卸载时，Runtime 会执行 `ctx.set()` 对应的撤销操作，删除 `embedding`，随后再次通知 B：
+
+```text
+Plugin A 卸载
+        ↓
+undo(ctx.set)
+        ↓
+embedding 消失
+        ↓
+Plugin B：ACTIVE → UNLOADING → INACTIVE
+```
+
+B 不需要监听 `onPluginAUnload`，也不需要知道当前 Provider 是谁。只要新的 Provider 再次注册同一个能力，B 就可以重新被激活。因此 A 可以被替换成不同实现：
+
+```text
+                 embedding
+              /      |      \
+OpenAI Plugin   Qwen Plugin   Local Plugin
+```
+
+更合理的系统边界不是“B 依赖 A”，而是双方依赖一个稳定的能力接口：
+
+```ts
+interface EmbeddingService {
+  embed(text: string): Promise<number[]>
+}
+```
+
+这个案例把 Cordis 的三个核心概念串了起来：
+
+1. A 通过 Context 提供能力，B 通过 Context 获取能力。
+2. `ctx.set()` 产生的副作用能够在 A 卸载时自动撤销。
+3. `embedding` 的出现、消失或替换，会驱动 B 自动启动、卸载或重载。
+
+对于 Agent Harness，`memory`、`sandbox`、`browser`、`llm`、`filesystem` 和 `tool_registry` 都可以采用同样的模型：**插件只是 Capability 的实现，组件依赖的是 Capability，而不是某个具体插件。**
+
+---
+
 ## 最核心的结论
 
 如果只记住这篇论文的三个概念：
