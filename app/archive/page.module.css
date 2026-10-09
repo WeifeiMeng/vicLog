@@ -61,6 +61,19 @@
   letter-spacing: 0.04em;
 }
 
+.details {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: flex-end;
+}
+
+.details > * + *::before {
+  content: "·";
+  margin-right: 0.45rem;
+}
+
 .year a {
   color: var(--ink);
   font-family: var(--serif);

@@ -15,7 +15,7 @@
   text-transform: uppercase;
 }
 
-.category::before {
+.meta > * + *::before {
   content: "·";
   margin-right: 0.65rem;
 }

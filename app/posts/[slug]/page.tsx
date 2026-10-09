@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { MarkdownContent } from "@/components/markdown-content";
 import { formatPostDate } from "@/components/post-card";
+import { PostAuthor } from "@/components/post-meta";
 import { getAdjacentPosts, getPost, getPosts } from "@/lib/content";
 
 import styles from "./page.module.css";
@@ -45,6 +46,7 @@ export default async function PostPage({ params }: PostPageProps) {
         <div className={styles.meta}>
           <time dateTime={post.date}>{formatPostDate(post.date)}</time>
           {post.category ? <span>{post.category}</span> : null}
+          <PostAuthor author={post.author} />
         </div>
         <h1>{post.title}</h1>
         <p>{post.excerpt}</p>

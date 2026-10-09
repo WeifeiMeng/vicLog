@@ -1,6 +1,7 @@
 import type { Post } from "@/lib/content/types";
 
 import styles from "./post-card.module.css";
+import { PostAuthor } from "./post-meta";
 
 interface PostCardProps {
   post: Post;
@@ -21,6 +22,7 @@ export function PostCard({ post }: PostCardProps) {
         {post.category ? (
           <span className={styles.category}>{post.category}</span>
         ) : null}
+        <PostAuthor author={post.author} />
       </div>
       <h2 className={styles.title}>
         <a href={href}>{post.title}</a>

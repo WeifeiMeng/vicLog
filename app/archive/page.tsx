@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { formatPostDate } from "@/components/post-card";
+import { PostAuthor } from "@/components/post-meta";
 import { getPosts, groupPostsByYear } from "@/lib/content";
 
 import styles from "./page.module.css";
@@ -29,7 +30,10 @@ export default function ArchivePage() {
               <li key={post.slug}>
                 <time dateTime={post.date}>{formatPostDate(post.date)}</time>
                 <a href={`/posts/${post.slug}/`}>{post.title}</a>
-                {post.category ? <span>{post.category}</span> : null}
+                <span className={styles.details}>
+                  {post.category ? <span>{post.category}</span> : null}
+                  <PostAuthor author={post.author} />
+                </span>
               </li>
             ))}
           </ol>
