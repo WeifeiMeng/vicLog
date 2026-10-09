@@ -121,6 +121,20 @@ export function PostEditor({ initial }: { initial: EditablePost | PostInput }) {
           <input onChange={(e) => set("date", e.target.value)} required type="date" value={form.date} />
         </label>
         <label>
+          <span>作者</span>
+          <input
+            list="post-author-suggestions"
+            name="author"
+            onChange={(event) => set("author", event.target.value)}
+            required
+            value={form.author}
+          />
+          <datalist id="post-author-suggestions">
+            <option value="Vic" />
+            <option value="Vic Agent" />
+          </datalist>
+        </label>
+        <label>
           <span>分类</span>
           <input onChange={(e) => set("category", e.target.value)} value={form.category} />
         </label>
@@ -165,6 +179,6 @@ export function PostEditor({ initial }: { initial: EditablePost | PostInput }) {
 }
 
 function stripVersion(post: EditablePost | PostInput): PostInput {
-  const { slug, title, date, category, excerpt, published, body } = post;
-  return { slug, title, date, category, excerpt, published, body };
+  const { slug, title, author, date, category, excerpt, published, body } = post;
+  return { slug, title, author, date, category, excerpt, published, body };
 }

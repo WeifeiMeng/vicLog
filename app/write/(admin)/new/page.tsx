@@ -11,6 +11,7 @@ export default async function NewPostPage() {
         initial={{
           slug: "",
           title: "",
+          author: "Vic",
           date: today,
           category: "",
           excerpt: "",
