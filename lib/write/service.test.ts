@@ -14,6 +14,7 @@ const roots: string[] = [];
 const input = {
   slug: "safe-post",
   title: "Safe post",
+  author: "Vic",
   date: "2026-09-28",
   category: "",
   excerpt: "Safe excerpt",

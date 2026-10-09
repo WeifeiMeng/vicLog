@@ -21,6 +21,7 @@ async function makeRoot() {
 const draft = {
   slug: "hello-world",
   title: "Hello: world",
+  author: "Vic",
   date: "2026-09-28",
   category: "随笔",
   excerpt: "A short note",
@@ -44,12 +45,28 @@ describe("write post validation", () => {
     expect(() => validatePostInput({ ...draft, date: "2026-02-30" })).toThrow(/date/i);
   });
 
+  test("requires a non-empty author", () => {
+    expect(() => validatePostInput({ ...draft, author: " " })).toThrow(/author/i);
+  });
+
   test("serializes YAML-safe frontmatter that round-trips", async () => {
     const root = await makeRoot();
     const store = createPostStore(root);
     await writeFile(path.join(root, "posts", "hello-world.md"), serializePost(draft));
 
     expect(await store.read("hello-world")).toMatchObject(draft);
+  });
+
+  test("round-trips a custom author through Markdown", async () => {
+    const root = await makeRoot();
+    const store = createPostStore(root);
+    const custom = { ...draft, author: "Guest Writer" };
+
+    await writeFile(path.join(root, "posts", "hello-world.md"), serializePost(custom));
+
+    expect(await store.read("hello-world")).toMatchObject(custom);
+    expect(await readFile(path.join(root, "posts", "hello-world.md"), "utf8"))
+      .toContain("author: Guest Writer");
   });
 });
 

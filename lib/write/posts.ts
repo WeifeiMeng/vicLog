@@ -39,6 +39,7 @@ export function validatePostInput(input: PostInput): PostInput {
     const validated = validatePost(
       {
         title: input.title.trim(),
+        author: input.author.trim(),
         date: input.date,
         category: input.category.trim() || undefined,
         excerpt: input.excerpt.trim(),
@@ -49,6 +50,7 @@ export function validatePostInput(input: PostInput): PostInput {
     return {
       ...input,
       title: validated.title,
+      author: validated.author,
       date: validated.date,
       category: validated.category ?? "",
       excerpt: validated.excerpt,
@@ -68,6 +70,7 @@ export function serializePost(raw: PostInput): string {
   const frontmatter = dumpYaml(
     {
       title: input.title,
+      author: input.author,
       date: input.date,
       ...(input.category ? { category: input.category } : {}),
       excerpt: input.excerpt,
@@ -85,6 +88,7 @@ export function createPostStore(contentRoot: string): PostStore {
     validatePostInput({
       slug,
       title: "path",
+      author: "Vic",
       date: "2000-01-01",
       category: "",
       excerpt: "path",
@@ -120,6 +124,7 @@ export function createPostStore(contentRoot: string): PostStore {
       return {
         slug,
         title: data.title,
+        author: data.author,
         date: data.date,
         category: data.category ?? "",
         excerpt: data.excerpt,

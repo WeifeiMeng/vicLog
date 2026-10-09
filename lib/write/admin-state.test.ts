@@ -4,8 +4,8 @@ import { filterPostSummaries } from "./admin-state";
 import type { PostSummary } from "./types";
 
 const posts = [
-  { slug: "public-note", title: "公开文章", excerpt: "hello", published: true },
-  { slug: "draft-note", title: "草稿", excerpt: "private thought", published: false },
+  { slug: "public-note", title: "公开文章", author: "Vic", excerpt: "hello", published: true },
+  { slug: "draft-note", title: "草稿", author: "Vic Agent", excerpt: "private thought", published: false },
 ] as PostSummary[];
 
 describe("admin article filtering", () => {
