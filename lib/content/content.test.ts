@@ -62,22 +62,22 @@ describe("loadContent", () => {
     await writePost(
       root,
       "older.md",
-      'title: Older\ndate: "2026-01-02"\nexcerpt: Older excerpt\npublished: true',
+      'title: Older\nauthor: Vic\ndate: "2026-01-02"\nexcerpt: Older excerpt\npublished: true',
     );
     await writePost(
       root,
       "newer.md",
-      'title: Newer\ndate: "2026-03-04"\nexcerpt: Newer excerpt\npublished: true',
+      'title: Newer\nauthor: Vic\ndate: "2026-03-04"\nexcerpt: Newer excerpt\npublished: true',
     );
     await writePost(
       root,
       "draft.md",
-      'title: Draft\ndate: "2026-04-05"\nexcerpt: Draft excerpt\npublished: false',
+      'title: Draft\nauthor: Vic\ndate: "2026-04-05"\nexcerpt: Draft excerpt\npublished: false',
     );
     await writePost(
       root,
       "ignored.txt",
-      'title: Ignored\ndate: "2027-01-01"\nexcerpt: Ignored excerpt\npublished: true',
+      'title: Ignored\nauthor: Vic\ndate: "2027-01-01"\nexcerpt: Ignored excerpt\npublished: true',
     );
 
     const content = loadContent(root);
@@ -106,7 +106,7 @@ describe("loadContent", () => {
     await writePost(
       root,
       "notes#draft.md",
-      'title: Unsafe slug\ndate: "2026-03-04"\nexcerpt: Unsafe slug\npublished: true',
+      'title: Unsafe slug\nauthor: Vic\ndate: "2026-03-04"\nexcerpt: Unsafe slug\npublished: true',
     );
 
     expect(() => loadContent(root)).toThrow(
@@ -127,7 +127,7 @@ describe("loadContent", () => {
     await writePost(
       root,
       "impossible.md",
-      "title: Impossible\ndate: 2026-02-30\nexcerpt: Impossible date\npublished: true",
+      "title: Impossible\nauthor: Vic\ndate: 2026-02-30\nexcerpt: Impossible date\npublished: true",
     );
 
     expect(() => loadContent(root)).toThrow(/impossible\.md: invalid or missing date/);
@@ -138,7 +138,7 @@ describe("loadContent", () => {
     await writePost(
       root,
       "unquoted.md",
-      "title: Unquoted\ndate: 2026-01-02\nexcerpt: Unquoted date\npublished: true",
+      "title: Unquoted\nauthor: Vic\ndate: 2026-01-02\nexcerpt: Unquoted date\npublished: true",
     );
 
     const [post] = loadContent(root).posts;
@@ -152,7 +152,7 @@ describe("loadContent", () => {
     await writePost(
       root,
       "quoted-scalar.md",
-      'title: Quoted scalar\nexcerpt: "First line\ndate: 2099-12-31\nlast line"\ndate: 2026-01-02\npublished: true',
+      'title: Quoted scalar\nauthor: Vic\nexcerpt: "First line\ndate: 2099-12-31\nlast line"\ndate: 2026-01-02\npublished: true',
     );
 
     const [post] = loadContent(root).posts;
@@ -166,7 +166,7 @@ describe("loadContent", () => {
     await writePost(
       root,
       "missing-date.md",
-      'title: Missing date\nexcerpt: "First line\ndate: 2099-12-31\nlast line"\npublished: true',
+      'title: Missing date\nauthor: Vic\nexcerpt: "First line\ndate: 2099-12-31\nlast line"\npublished: true',
     );
 
     expect(() => loadContent(root)).toThrow(
@@ -240,7 +240,7 @@ describe("loadContent", () => {
       await writePost(
         root,
         `${slug}.md`,
-        `title: ${slug}\ndate: 2026-01-02\nexcerpt: ${slug}\npublished: true`,
+        `title: ${slug}\nauthor: Vic\ndate: 2026-01-02\nexcerpt: ${slug}\npublished: true`,
       );
     }
 
@@ -291,7 +291,7 @@ describe("default content accessors", () => {
     await writePost(
       root,
       "hello.md",
-      'title: Hello\ndate: "2026-01-02"\nexcerpt: Hello excerpt\npublished: true',
+      'title: Hello\nauthor: Vic\ndate: "2026-01-02"\nexcerpt: Hello excerpt\npublished: true',
     );
     process.chdir(workspace);
 
@@ -318,7 +318,7 @@ describe("default content accessors", () => {
       await writePost(
         root,
         `${slug}.md`,
-        `title: ${slug}\ndate: "${date}"\nexcerpt: ${slug}\npublished: true`,
+        `title: ${slug}\nauthor: Vic\ndate: "${date}"\nexcerpt: ${slug}\npublished: true`,
       );
     }
     process.chdir(workspace);
@@ -350,7 +350,7 @@ describe("content caching", () => {
     await writePost(
       root,
       "cached.md",
-      "title: Before\ndate: 2026-01-02\nexcerpt: Before\npublished: true",
+      "title: Before\nauthor: Vic\ndate: 2026-01-02\nexcerpt: Before\npublished: true",
     );
     process.chdir(workspace);
 
@@ -363,7 +363,7 @@ describe("content caching", () => {
     await writePost(
       root,
       "cached.md",
-      "title: After!\ndate: 2026-01-02\nexcerpt: After!\npublished: true",
+      "title: After!\nauthor: Vic\ndate: 2026-01-02\nexcerpt: After!\npublished: true",
     );
     const later = new Date(Date.now() + 1_000);
     await utimes(postFile, later, later);
@@ -379,14 +379,14 @@ describe("content caching", () => {
     await writePost(
       root,
       "fixture.md",
-      "title: Before\ndate: 2026-01-02\nexcerpt: Before\npublished: true",
+      "title: Before\nauthor: Vic\ndate: 2026-01-02\nexcerpt: Before\npublished: true",
     );
     const first = loadContent(root);
 
     await writePost(
       root,
       "fixture.md",
-      "title: After\ndate: 2026-01-02\nexcerpt: After\npublished: true",
+      "title: After\nauthor: Vic\ndate: 2026-01-02\nexcerpt: After\npublished: true",
     );
     const changed = loadContent(root);
 
@@ -396,11 +396,41 @@ describe("content caching", () => {
 });
 
 describe("validatePost", () => {
+  test("loads the required article author", async () => {
+    const root = await createContentRoot();
+    await writePost(
+      root,
+      "by-agent.md",
+      "title: Agent note\nauthor: Vic Agent\ndate: 2026-01-02\nexcerpt: Note\npublished: true",
+    );
+
+    expect(loadContent(root).posts[0].author).toBe("Vic Agent");
+  });
+
+  test.each([undefined, "", "   ", 42])(
+    "rejects invalid article author %j",
+    (author) => {
+      expect(() =>
+        validatePost(
+          {
+            title: "Note",
+            author,
+            date: "2026-01-02",
+            excerpt: "Excerpt",
+            published: true,
+          },
+          "note.md",
+        ),
+      ).toThrow(/invalid or missing author/);
+    },
+  );
+
   test("rejects an arbitrary Date object", () => {
     expect(() =>
       validatePost(
         {
           title: "Post",
+          author: "Vic",
           date: new Date("2026-01-02T00:00:00.000Z"),
           excerpt: "Excerpt",
           published: true,
@@ -413,7 +443,7 @@ describe("validatePost", () => {
   test("rejects a missing excerpt", () => {
     expect(() =>
       validatePost(
-        { title: "Post", date: "2026-01-02", published: true },
+        { title: "Post", author: "Vic", date: "2026-01-02", published: true },
         "post.md",
       ),
     ).toThrow("post.md: invalid or missing excerpt");
@@ -424,6 +454,7 @@ describe("validatePost", () => {
       validatePost(
         {
           title: "Post",
+          author: "Vic",
           date: "2026-01-02",
           excerpt: "Excerpt",
           published: "yes",
@@ -438,6 +469,7 @@ describe("validatePost", () => {
       validatePost(
         {
           title: "Post",
+          author: "Vic",
           date: "2026-01-02",
           category: 42,
           excerpt: "Excerpt",

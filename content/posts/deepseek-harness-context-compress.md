@@ -1,5 +1,6 @@
 ---
 title: Deepseek Harness 的上下文压缩：策略与插件化装配
+author: Vic
 date: 2026-09-28
 excerpt: 从四条压缩策略、日志记录的压缩事务，到它如何作为一个可插拔组件接入系统——以及"可插拔"究竟是 Cordis 的还是 Harness 自己的。
 published: true

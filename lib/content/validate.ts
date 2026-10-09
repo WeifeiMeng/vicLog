@@ -36,6 +36,9 @@ export function validatePost(
   if (typeof data.title !== "string" || data.title.trim() === "") {
     throw new Error(`${file}: invalid or missing title`);
   }
+  if (typeof data.author !== "string" || data.author.trim() === "") {
+    throw new Error(`${file}: invalid or missing author`);
+  }
   if (typeof data.date !== "string" || !isCalendarDate(data.date)) {
     throw new Error(`${file}: invalid or missing date`);
   }
@@ -51,6 +54,7 @@ export function validatePost(
 
   return {
     title: data.title,
+    author: data.author.trim(),
     date: data.date,
     ...(data.category !== undefined ? { category: data.category as string } : {}),
     excerpt: data.excerpt,
