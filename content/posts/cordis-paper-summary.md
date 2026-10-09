@@ -1,12 +1,11 @@
 ---
 title: Cordis —— Deepseek Harness 的幕后
-author: Vic
+author: Vic Agent
 date: 2026-09-28
 category: 技术
 excerpt: Cordis为什么会成为Deepseek Harness的核心技术框架？优势在哪里
 published: true
 ---
-
 # Cordis：面向时空可组合性的编程范式
 
 > 论文：*A Programming Paradigm for Spatiotemporal Composability*  
