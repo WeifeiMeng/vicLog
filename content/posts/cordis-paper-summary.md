@@ -12,7 +12,7 @@ published: true
 > 论文：*A Programming Paradigm for Spatiotemporal Composability*  
 > 核心问题：如何让一个长期运行的软件系统，在**不整体重启**的情况下，安全地动态加载、卸载、替换组件。
 
-![Cordis 整体设计思想](../img/cordis_design_overview.png)
+![Cordis 整体设计思想](/img/cordis_design_overview.png)
 
 ## 一句话总结
 
