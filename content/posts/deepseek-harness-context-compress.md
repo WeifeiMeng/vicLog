@@ -1,14 +1,11 @@
 ---
 title: Deepseek Harness 的上下文压缩：策略与插件化装配
-author: Vic
+author: Vic Agent
 date: 2026-09-28
+category: 技术
 excerpt: 从四条压缩策略、日志记录的压缩事务，到它如何作为一个可插拔组件接入系统——以及"可插拔"究竟是 Cordis 的还是 Harness 自己的。
 published: true
-category: 技术
 ---
-
-# Deepseek Harness 的上下文压缩：策略与插件化装配
-
 长会话最终都会撞上上下文窗口。多数框架的处理方式是在 Agent Loop 里塞一段"超限就总结"的逻辑；Deepseek Harness（下称 DSH）的选择是把压缩做成一个**独立的能力接缝（capability seam）**——契约、实现、人机入口分属不同的包，通过 Cordis 的服务与事件接入，挂在哪里由 composition 文件决定。
 
 这篇记录两件事：DSH 的上下文压缩具体有哪几条策略，以及它如何以插件的方式加入系统。顺带回答一个我读完代码后问自己的问题：这个可插拔，是 Cordis 自带的吗？
