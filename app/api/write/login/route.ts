@@ -9,7 +9,7 @@ import {
 } from "@/lib/write/auth";
 import { WriteError } from "@/lib/write/errors";
 import { jsonError } from "@/lib/write/http";
-import { assertSameOrigin } from "@/lib/write/request";
+import { assertSameOrigin, isRequestSecure } from "@/lib/write/request";
 import { getWriteRuntime } from "@/lib/write/server";
 
 const limiter = new LoginLimiter();
@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     response.cookies.set(SESSION_COOKIE, createSession(config.sessionSecret), {
       httpOnly: true,
       sameSite: "strict",
-      secure: process.env.NODE_ENV === "production",
+      secure: isRequestSecure(request),
       path: "/",
       maxAge: SESSION_MAX_AGE_SECONDS,
     });
