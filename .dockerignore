@@ -1,0 +1,8 @@
+.git
+.next
+.env*
+node_modules
+npm-debug.log*
+*.tar
+*.tar.gz
+docs/superpowers
