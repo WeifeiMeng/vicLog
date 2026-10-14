@@ -16,7 +16,10 @@ let defaultContentCache: ContentCacheEntry | undefined;
 
 export function loadContent(contentRoot?: string): ContentCollection {
   const isDefaultRoot = contentRoot === undefined;
-  const resolvedRoot = contentRoot ?? path.join(process.cwd(), "content");
+  const resolvedRoot = contentRoot ?? path.resolve(
+    /* turbopackIgnore: true */ process.env.CONTENT_ROOT
+      ?? path.join(process.cwd(), "content"),
+  );
   const siteFile = path.join(resolvedRoot, "site.md");
   if (!existsSync(siteFile)) {
     throw new Error(`${siteFile}: missing site content`);

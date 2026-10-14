@@ -1,6 +1,6 @@
 services:
   viclog:
-    image: "viclog:f581d8c"
+    image: "viclog:content-sync-20261014"
     container_name: viclog
     restart: unless-stopped
     user: "${VICLOG_UID}:${VICLOG_GID}"

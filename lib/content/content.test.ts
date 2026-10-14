@@ -25,6 +25,7 @@ import { validatePost, validateSite } from "./validate";
 
 const temporaryRoots: string[] = [];
 const originalCwd = process.cwd();
+const originalContentRoot = process.env.CONTENT_ROOT;
 
 async function createContentRoot(): Promise<string> {
   const root = await mkdtemp(path.join(tmpdir(), "vic-log-content-"));
@@ -51,6 +52,11 @@ async function writePost(
 
 afterEach(async () => {
   process.chdir(originalCwd);
+  if (originalContentRoot === undefined) {
+    delete process.env.CONTENT_ROOT;
+  } else {
+    process.env.CONTENT_ROOT = originalContentRoot;
+  }
   await Promise.all(
     temporaryRoots.splice(0).map((root) => rm(root, { recursive: true })),
   );
@@ -279,6 +285,19 @@ describe("assertUniqueSlugs", () => {
 });
 
 describe("default content accessors", () => {
+  test("read from CONTENT_ROOT when the runtime content is mounted elsewhere", async () => {
+    const root = await createContentRoot();
+    await writePost(
+      root,
+      "mounted.md",
+      'title: Mounted content\nauthor: Vic Agent\ndate: "2026-10-14"\nexcerpt: Mounted excerpt\npublished: true',
+    );
+    process.env.CONTENT_ROOT = root;
+
+    expect(getPosts().map(({ slug }) => slug)).toEqual(["mounted"]);
+    expect(getPost("mounted")?.title).toBe("Mounted content");
+  });
+
   test("return the default site's published posts and find a post by slug", async () => {
     const workspace = await mkdtemp(path.join(tmpdir(), "vic-log-workspace-"));
     temporaryRoots.push(workspace);
