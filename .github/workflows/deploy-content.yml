@@ -1,0 +1,39 @@
+name: Deploy blog content
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: viclog-content-production
+  cancel-in-progress: false
+
+jobs:
+  sync-content:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Configure SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.VICLOG_DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.VICLOG_SSH_KNOWN_HOSTS }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/viclog_deploy
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/viclog_deploy ~/.ssh/known_hosts
+
+      - name: Sync published content
+        run: |
+          ssh -T \
+            -o BatchMode=yes \
+            -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes \
+            -i ~/.ssh/viclog_deploy \
+            root@123.56.122.63 sync-viclog-content
