@@ -2,6 +2,8 @@
 
 本文说明如何在本机启动、预览和修改 Vic Log，以及如何使用 `/write` 管理 Markdown 文章。
 
+线上文章的标准发布路径、GitHub Actions 自动同步和服务器目录说明，请阅读 [`article-publishing-guide.md`](./article-publishing-guide.md)。
+
 ## 1. 环境准备
 
 需要安装：
@@ -120,6 +122,7 @@ my-new-post.md
 ```yaml
 ---
 title: 我的新文章
+author: Vic
 date: 2026-09-24
 category: 随笔
 excerpt: 一句话介绍文章内容。
@@ -129,7 +132,7 @@ published: true
 这里开始写 Markdown 正文。
 ```
 
-- `title`、`date`、`excerpt`、`published` 必填。
+- `title`、`author`、`date`、`excerpt`、`published` 必填。
 - `date` 使用有效的 `YYYY-MM-DD` 日期。
 - `category` 可选。
 - `published: false` 表示草稿，不会出现在首页、归档和 RSS 中。
