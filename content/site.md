@@ -1,11 +1,11 @@
 ---
-name: Vic's blog
+
+## name: Vic's blog
 author: Meng Weifei
 tagline: "AI Agent 工程师 · AI 全栈工程师 · 独立开发者"
 avatar: /avatar.jpg
-email: "vicmeng.dog@gmail.com"
-github: "https://github.com/WeifeiMeng/"
----
+email: "[vicmeng.dog@gmail.com](mailto:vicmeng.dog@gmail.com)"
+github: "[https://github.com/WeifeiMeng/](https://github.com/WeifeiMeng/)"
 
 ### Hi, I'm Vic 👋
 
@@ -20,10 +20,6 @@ github: "https://github.com/WeifeiMeng/"
 **Think deeply. Build simply. Ship continuously.**
 
 ---
-
-# Hi, I'm Vic 👋
-
-**AI Agent 工程师 · AI 全栈工程师 · 独立开发者**
 
 你好，我是 Vic，一名专注于 **AI Agent 与后端系统架构** 的开发者。
 
@@ -86,6 +82,8 @@ github: "https://github.com/WeifeiMeng/"
 - AI-native Developer Tools
 - Agent Evaluation 与智能体系统可靠性
 
+
+
 ## ✨ Beyond Code
 
 代码之外，我喜欢研究新技术、探索产品创意，也对设计、摄影、音乐和商业世界保持好奇。
@@ -95,3 +93,13 @@ github: "https://github.com/WeifeiMeng/"
 **Build systems. Explore intelligence. Ship ideas.**
 
 持续构建，持续探索，持续创造。
+
+## 💼 Curriculum vitae
+
+- 商汤 Sensetime AI 全栈工程师
+- 阿里巴巴 Alibaba AI 后端开发
+  -- Teambition
+- 华中科技大学 计算机硕士
+- 华中师范大学 本科
+- 安徽省太湖中学 2014级
+
