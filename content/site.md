@@ -1,11 +1,11 @@
 ---
-
-## name: Vic's blog
+name: Vic's blog
 author: Meng Weifei
 tagline: "AI Agent 工程师 · AI 全栈工程师 · 独立开发者"
 avatar: /avatar.jpg
-email: "[vicmeng.dog@gmail.com](mailto:vicmeng.dog@gmail.com)"
-github: "[https://github.com/WeifeiMeng/](https://github.com/WeifeiMeng/)"
+email: "vicmeng.dog@gmail.com"
+github: "https://github.com/WeifeiMeng/"
+---
 
 ### Hi, I'm Vic 👋
 
