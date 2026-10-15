@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths:
       - "content/**"
+      - "scripts/validate-content.mjs"
+      - "scripts/validate-content.test.ts"
+      - "package.json"
+      - ".github/workflows/deploy-content.yml"
   workflow_dispatch:
 
 permissions:
@@ -19,6 +23,37 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Markdown content
+        id: content_validation
+        run: |
+          set -o pipefail
+          npm run validate:content 2>&1 | tee content-validation.log
+
+      - name: Explain content validation failure
+        if: failure() && steps.content_validation.outcome == 'failure'
+        run: |
+          {
+            echo "## Content validation failed"
+            echo
+            echo "The server was not updated. Fix the Markdown frontmatter error below and push again:"
+            echo
+            echo '```text'
+            cat content-validation.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Configure SSH
         env:
           DEPLOY_KEY: ${{ secrets.VICLOG_DEPLOY_SSH_KEY }}
