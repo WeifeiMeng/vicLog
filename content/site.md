@@ -1,7 +1,7 @@
 ---
 name: Vic's blog
 author: Meng Weifei
-tagline: "AI Agent Engineer · Backend Developer · Indie Hacker"
+tagline: "AI Agent 工程师 · AI 全栈工程师 · 独立开发者"
 avatar: /avatar.jpg
 email: "vicmeng.dog@gmail.com"
 github: "https://github.com/WeifeiMeng/"
@@ -9,7 +9,7 @@ github: "https://github.com/WeifeiMeng/"
 
 ### Hi, I'm Vic 👋
 
-**AI Agent Engineer · Backend Developer · Indie Hacker**
+**AI Agent 工程师 · AI 全栈工程师 · 独立开发者**
 
 专注于 AI Agent、Context Engineering、分布式系统与云原生基础设施。
 
@@ -23,7 +23,7 @@ github: "https://github.com/WeifeiMeng/"
 
 # Hi, I'm Vic 👋
 
-**AI Agent Engineer / Backend Developer / Indie Hacker**
+**AI Agent 工程师 · AI 全栈工程师 · 独立开发者**
 
 你好，我是 Vic，一名专注于 **AI Agent 与后端系统架构** 的开发者。
 
