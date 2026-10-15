@@ -1,13 +1,14 @@
 ---
-name: Vic's blog
+
+## name: Vic's blog
+
 author: Meng Weifei
 tagline: "AI Agent 工程师 · AI 全栈工程师 · 独立开发者"
 avatar: /avatar.jpg
-email: "vicmeng.dog@gmail.com"
-github: "https://github.com/WeifeiMeng/"
----
+email: "[vicmeng.dog@gmail.com](mailto:vicmeng.dog@gmail.com)"
+github: "[https://github.com/WeifeiMeng/](https://github.com/WeifeiMeng/)"
 
-### Hi, I'm Vic 👋
+### 你好，我是 Vic
 
 **AI Agent 工程师 · AI 全栈工程师 · 独立开发者**
 
@@ -15,19 +16,11 @@ github: "https://github.com/WeifeiMeng/"
 
 探索智能体架构、Agent Runtime、多智能体协作及 AI-native 软件的工程实践。
 
-热衷于从底层技术到产品构建，将有趣的想法变成真实可用的系统。
+热衷于从底层技术到产品构建，将有趣的想法变成真实可用的系统。我的技术兴趣不仅限于模型本身，更关注模型背后的 **Runtime、Context Engineering、Agent Harness、Tool Ecosystem 以及 Infrastructure**。
+
+喜欢研究复杂系统的设计原理，也享受将**想法从概念验证逐步构建为真实产品**的过程。
 
 **Think deeply. Build simply. Ship continuously.**
-
----
-
-你好，我是 Vic，一名专注于 **AI Agent 与后端系统架构** 的开发者。
-
-我热衷于探索人工智能与软件工程的交汇点，关注如何将大语言模型从简单的对话工具转变为真正具备规划、记忆、工具调用和自主执行能力的智能系统。
-
-我的技术兴趣不仅限于模型本身，更关注模型背后的 **Runtime、Context Engineering、Agent Harness、Tool Ecosystem 以及 Infrastructure**。
-
-我喜欢研究复杂系统的设计原理，也享受将想法从概念验证逐步构建为真实产品的过程。
 
 ## 🧠 AI & Agent Engineering
 
@@ -82,8 +75,6 @@ github: "https://github.com/WeifeiMeng/"
 - AI-native Developer Tools
 - Agent Evaluation 与智能体系统可靠性
 
-
-
 ## ✨ Beyond Code
 
 代码之外，我喜欢研究新技术、探索产品创意，也对设计、摄影、音乐和商业世界保持好奇。
@@ -98,7 +89,7 @@ github: "https://github.com/WeifeiMeng/"
 
 - 商汤 Sensetime AI 全栈工程师
 - 阿里巴巴 Alibaba AI 后端开发
-  -- Teambition
+-- Teambition
 - 华中科技大学 计算机硕士
 - 华中师范大学 本科
 - 安徽省太湖中学 2014级
