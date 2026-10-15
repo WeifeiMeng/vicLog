@@ -1,6 +1,6 @@
 services:
   viclog:
-    image: "viclog:content-sync-20261014"
+    image: "viclog:about-dynamic-5f40d33"
     container_name: viclog
     restart: unless-stopped
     user: "${VICLOG_UID}:${VICLOG_GID}"

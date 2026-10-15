@@ -40,7 +40,7 @@ describe("Docker deployment contract", () => {
   test("runs persistently on port 3001 with bounded resources", async () => {
     const compose = await readDeploymentFile("deploy/compose.yml");
 
-    expect(compose).toContain('image: "viclog:content-sync-20261014"');
+    expect(compose).toContain('image: "viclog:about-dynamic-5f40d33"');
     expect(compose).toContain('user: "${VICLOG_UID}:${VICLOG_GID}"');
     expect(compose).toContain('env_file:');
     expect(compose).toContain('/opt/viclog/.env.local');
