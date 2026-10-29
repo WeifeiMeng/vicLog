@@ -1,6 +1,8 @@
 import type { ComponentPropsWithoutRef } from "react";
 import ReactMarkdown from "react-markdown";
+import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 
 import styles from "./markdown-content.module.css";
 
@@ -23,7 +25,11 @@ function MarkdownLink({ href = "", ...props }: ComponentPropsWithoutRef<"a">) {
 export function MarkdownContent({ children }: MarkdownContentProps) {
   return (
     <div className={styles.content}>
-      <ReactMarkdown components={{ a: MarkdownLink }} remarkPlugins={[remarkGfm]}>
+      <ReactMarkdown
+        components={{ a: MarkdownLink }}
+        rehypePlugins={[rehypeKatex]}
+        remarkPlugins={[remarkGfm, remarkMath]}
+      >
         {children}
       </ReactMarkdown>
     </div>

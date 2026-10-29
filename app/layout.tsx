@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 import { SiteShell } from "@/components/site-shell";
 
+import "katex/dist/katex.min.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
