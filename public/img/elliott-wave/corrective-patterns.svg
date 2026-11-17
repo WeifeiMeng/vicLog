@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">常见调整浪结构</title>
+  <desc id="desc">四个面板展示锯齿形、平台形、三角形和双重三浪的典型结构。</desc>
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#dedbd2" stroke-width="1"/></pattern>
+    <style>.title{font:700 34px system-ui,sans-serif;fill:#17252b}.sub{font:18px system-ui,sans-serif;fill:#52605f}.head{font:700 22px system-ui,sans-serif;fill:#17252b}.small{font:15px system-ui,sans-serif;fill:#52605f}.corr{fill:none;stroke:#c75038;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.minor{fill:none;stroke:#176b87;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.guide{fill:none;stroke:#7b817f;stroke-width:2;stroke-dasharray:7 6}.n{font:700 17px system-ui,sans-serif;fill:#17252b}</style>
+  </defs>
+  <rect width="1200" height="680" fill="#fbfaf6"/>
+  <text x="55" y="56" class="title">调整浪词典：方向相同，不代表结构相同</text>
+  <text x="55" y="89" class="sub">调整比推动更多变。内部结构用于辨认候选形态，而不是要求每一段都长成完全对称的教科书图形。</text>
+
+  <g transform="translate(55 125)">
+    <rect width="530" height="230" rx="18" fill="url(#grid)" stroke="#dedbd2"/>
+    <text x="20" y="34" class="head">锯齿形 Zigzag · 5-3-5</text>
+    <polyline class="corr" points="28,65 230,180 320,118 505,205"/>
+    <polyline class="minor" points="28,65 67,96 98,82 139,122 172,108 230,180"/>
+    <polyline class="minor" points="320,118 358,147 390,137 430,174 462,160 505,205"/>
+    <g class="n" text-anchor="middle"><text x="230" y="207">A</text><text x="320" y="105">B</text><text x="505" y="225">C</text></g>
+    <text x="310" y="64" class="small">A、C 推进明显，B 通常不回到起点。</text>
+  </g>
+
+  <g transform="translate(615 125)">
+    <rect width="530" height="230" rx="18" fill="url(#grid)" stroke="#dedbd2"/>
+    <text x="20" y="34" class="head">平台形 Flat · 3-3-5</text>
+    <polyline class="corr" points="28,85 205,170 350,78 505,188"/>
+    <polyline class="minor" points="28,85 85,132 135,112 205,170"/>
+    <polyline class="minor" points="205,170 255,118 300,137 350,78"/>
+    <polyline class="minor" points="350,78 382,115 410,101 445,149 470,137 505,188"/>
+    <line x1="28" y1="85" x2="370" y2="85" class="guide"/>
+    <g class="n" text-anchor="middle"><text x="205" y="197">A</text><text x="350" y="66">B</text><text x="505" y="212">C</text></g>
+    <text x="278" y="220" class="small">B 可接近、到达或越过起点；C 的终点决定平台变体。</text>
+  </g>
+
+  <g transform="translate(55 385)">
+    <rect width="530" height="230" rx="18" fill="url(#grid)" stroke="#dedbd2"/>
+    <text x="20" y="34" class="head">三角形 Triangle · 3-3-3-3-3</text>
+    <polyline class="corr" points="30,73 120,188 220,96 300,166 385,113 470,148"/>
+    <line x1="30" y1="73" x2="470" y2="135" class="guide"/>
+    <line x1="120" y1="188" x2="470" y2="148" class="guide"/>
+    <g class="n" text-anchor="middle"><text x="120" y="212">A</text><text x="220" y="84">B</text><text x="300" y="190">C</text><text x="385" y="101">D</text><text x="470" y="174">E</text></g>
+    <text x="245" y="220" class="small">常见于第 4 浪、B 浪或组合调整末段；之后通常还有一次顺势推进。</text>
+  </g>
+
+  <g transform="translate(615 385)">
+    <rect width="530" height="230" rx="18" fill="url(#grid)" stroke="#dedbd2"/>
+    <text x="20" y="34" class="head">双重三浪 Combination · W-X-Y</text>
+    <polyline class="corr" points="28,72 95,150 150,115 210,184 285,105 350,165 405,132 505,196"/>
+    <g class="n" text-anchor="middle"><text x="95" y="174">a</text><text x="150" y="103">b</text><text x="210" y="208">W</text><text x="285" y="93">X</text><text x="350" y="189">a</text><text x="405" y="120">b</text><text x="505" y="220">Y</text></g>
+    <text x="28" y="50" class="small">两个简单调整由 X 浪连接，用于延长横向整理，而非形成新的推动浪。</text>
+  </g>
+</svg>

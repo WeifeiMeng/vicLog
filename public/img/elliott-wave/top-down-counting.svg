@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">从月线到日线的自上而下数浪流程</title>
+  <desc id="desc">月线确定大坐标，周线标出候选主结构，日线只放大当前子浪，并用铁律与失效位管理候选。</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#dedbd2" stroke-width="1"/></pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10Z" fill="#7b817f"/></marker>
+    <style>.title{font:700 34px system-ui,sans-serif;fill:#17252b}.sub{font:18px system-ui,sans-serif;fill:#52605f}.head{font:700 22px system-ui,sans-serif;fill:#17252b}.small{font:15px system-ui,sans-serif;fill:#52605f}.wave{fill:none;stroke:#176b87;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.corr{fill:none;stroke:#c75038;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}.guide{fill:none;stroke:#7b817f;stroke-width:2;stroke-dasharray:7 6}.flow{fill:none;stroke:#7b817f;stroke-width:3;marker-end:url(#arrow)}.n{font:700 15px system-ui,sans-serif;fill:#17252b}</style>
+  </defs>
+  <rect width="1200" height="680" fill="#fbfaf6"/>
+  <text x="55" y="56" class="title">定初步大浪型：月线定坐标，周线定结构，日线看细节</text>
+  <text x="55" y="89" class="sub">每一级只回答自己的问题。先从大到小建立候选，再用失效条件决定何时切换方案。</text>
+
+  <g transform="translate(55 125)">
+    <rect width="705" height="145" rx="18" fill="url(#grid)" stroke="#dedbd2"/>
+    <text x="20" y="33" class="head">月线 · 大坐标</text>
+    <polyline class="wave" points="25,115 120,92 195,108 290,64 390,80 500,37 610,70 680,45"/>
+    <circle cx="120" cy="92" r="10" fill="#fbfaf6" stroke="#c75038" stroke-width="4"/><circle cx="500" cy="37" r="10" fill="#fbfaf6" stroke="#c75038" stroke-width="4"/>
+    <text x="84" y="74" class="small">历史极端点</text><text x="515" y="34" class="small">阶段性高点</text>
+  </g>
+  <path class="flow" d="M408 270V295"/>
+  <g transform="translate(55 300)">
+    <rect width="705" height="145" rx="18" fill="url(#grid)" stroke="#dedbd2"/>
+    <text x="20" y="33" class="head">周线 · 主结构与候选计数</text>
+    <polyline class="wave" points="25,118 115,78 165,100 290,41 350,75 455,28"/>
+    <polyline class="corr" points="455,28 520,87 575,60 655,120"/>
+    <g class="n" text-anchor="middle"><text x="115" y="68">1</text><text x="165" y="122">2</text><text x="290" y="31">3</text><text x="350" y="97">4</text><text x="455" y="20">5</text><text x="520" y="108">A</text><text x="575" y="50">B</text><text x="655" y="140">C?</text></g>
+  </g>
+  <path class="flow" d="M408 445V470"/>
+  <g transform="translate(55 475)">
+    <rect width="705" height="145" rx="18" fill="url(#grid)" stroke="#dedbd2"/>
+    <text x="20" y="33" class="head">日线 · 只放大当前子浪</text>
+    <polyline class="corr" points="25,55 85,102 130,77 195,118 255,86 325,126"/>
+    <polyline class="wave" points="325,126 390,88 425,108 500,55 545,84 630,36"/>
+    <line x1="315" y1="126" x2="680" y2="126" stroke="#c75038" stroke-width="2" stroke-dasharray="7 6"/>
+    <text x="490" y="148" class="small">候选失效位：跌破后重做计数，而不是继续找补丁</text>
+  </g>
+
+  <g transform="translate(805 135)">
+    <rect width="340" height="465" rx="22" fill="#fff" stroke="#dedbd2"/>
+    <text x="28" y="46" class="head">四步输出，而非一个答案</text>
+    <g transform="translate(28 82)">
+      <circle cx="28" cy="28" r="28" fill="#176b87"/><text x="28" y="36" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#fff">1</text>
+      <text x="72" y="23" class="head">定浪级</text><text x="72" y="48" class="small">明确月、周、日线各自职责</text>
+    </g>
+    <path class="flow" d="M56 145V177"/>
+    <g transform="translate(28 180)">
+      <circle cx="28" cy="28" r="28" fill="#176b87"/><text x="28" y="36" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#fff">2</text>
+      <text x="72" y="23" class="head">列候选</text><text x="72" y="48" class="small">至少保留主选与备选计数</text>
+    </g>
+    <path class="flow" d="M56 243V275"/>
+    <g transform="translate(28 278)">
+      <circle cx="28" cy="28" r="28" fill="#176b87"/><text x="28" y="36" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#fff">3</text>
+      <text x="72" y="23" class="head">铁律过滤</text><text x="72" y="48" class="small">先排除不可能，再比较概率</text>
+    </g>
+    <path class="flow" d="M56 341V373"/>
+    <g transform="translate(28 376)">
+      <circle cx="28" cy="28" r="28" fill="#c75038"/><text x="28" y="36" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#fff">4</text>
+      <text x="72" y="23" class="head">写失效位</text><text x="72" y="48" class="small">价格触发后切换方案</text>
+    </g>
+  </g>
+</svg>

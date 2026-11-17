@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">波浪理论的分形浪级</title>
+  <desc id="desc">同一段大级别推动浪由更小级别的五浪推动和三浪调整层层嵌套而成。</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#dedbd2" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5 0 10Z" fill="#7b817f"/>
+    </marker>
+    <style>
+      .title{font:700 34px system-ui,sans-serif;fill:#17252b}.sub{font:18px system-ui,sans-serif;fill:#52605f}.label{font:700 22px system-ui,sans-serif;fill:#17252b}.small{font:16px system-ui,sans-serif;fill:#52605f}.wave{fill:none;stroke:#176b87;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.corr{fill:none;stroke:#c75038;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}.guide{fill:none;stroke:#7b817f;stroke-width:2;stroke-dasharray:8 8}.point{fill:#fbfaf6;stroke:#176b87;stroke-width:4}
+    </style>
+  </defs>
+  <rect width="1200" height="680" fill="#fbfaf6"/>
+  <rect x="36" y="112" width="1128" height="510" rx="22" fill="url(#grid)" stroke="#dedbd2"/>
+  <text x="60" y="58" class="title">大浪套小浪：先确定“在数哪一级”</text>
+  <text x="60" y="91" class="sub">浪级来自结构与相邻波段关系，不是固定天数；放大一段主浪，内部仍可见完整子浪。</text>
+
+  <text x="72" y="160" class="label">大浪级</text>
+  <polyline class="wave" points="80,500 260,380 370,440 620,210 760,315 1000,145"/>
+  <polyline class="corr" points="1000,145 1060,245 1110,205 1150,335"/>
+  <g class="label" text-anchor="middle">
+    <text x="260" y="360">(1)</text><text x="370" y="472">(2)</text><text x="620" y="190">(3)</text><text x="760" y="347">(4)</text><text x="1000" y="128">(5)</text>
+  </g>
+
+  <rect x="438" y="188" width="325" height="270" rx="18" fill="#fff" fill-opacity=".9" stroke="#176b87" stroke-width="3"/>
+  <text x="462" y="225" class="label">中浪级：放大大浪 (3)</text>
+  <polyline class="wave" points="465,416 515,365 548,391 615,292 650,332 720,250"/>
+  <g class="small" font-weight="700" text-anchor="middle">
+    <text x="515" y="351">1</text><text x="548" y="414">2</text><text x="615" y="278">3</text><text x="650" y="355">4</text><text x="720" y="236">5</text>
+  </g>
+  <path class="guide" marker-end="url(#arrow)" d="M635 475C620 520 555 535 510 492"/>
+
+  <rect x="92" y="505" width="360" height="92" rx="16" fill="#fff" fill-opacity=".94" stroke="#dedbd2"/>
+  <text x="116" y="539" class="label">小浪级</text>
+  <text x="116" y="570" class="small">中浪 1、3、5 还能继续拆成五个更小子浪。</text>
+  <path class="guide" marker-end="url(#arrow)" d="M450 548C500 555 525 525 535 455"/>
+
+  <g transform="translate(820 420)">
+    <rect width="300" height="150" rx="16" fill="#fff" fill-opacity=".94" stroke="#dedbd2"/>
+    <text x="22" y="38" class="label">读图顺序</text>
+    <text x="22" y="72" class="small">① 先看大浪方向</text>
+    <text x="22" y="101" class="small">② 再拆内部子浪</text>
+    <text x="22" y="130" class="small">③ 不从小周期反拼大浪</text>
+  </g>
+</svg>

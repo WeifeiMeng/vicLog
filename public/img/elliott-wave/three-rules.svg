@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">标准推动浪的三条铁律</title>
+  <desc id="desc">分别展示第二浪不能越过第一浪起点、第三浪不能最短、第四浪不能进入第一浪价格区域的有效与无效计数。</desc>
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#dedbd2" stroke-width="1"/></pattern>
+    <style>.title{font:700 34px system-ui,sans-serif;fill:#17252b}.sub{font:18px system-ui,sans-serif;fill:#52605f}.head{font:700 22px system-ui,sans-serif;fill:#17252b}.small{font:15px system-ui,sans-serif;fill:#52605f}.wave{fill:none;stroke:#176b87;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.bad{fill:none;stroke:#c75038;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.limit{stroke:#c75038;stroke-width:2;stroke-dasharray:7 6}.ok{font:700 24px system-ui,sans-serif;fill:#27845b}.no{font:700 24px system-ui,sans-serif;fill:#c75038}.n{font:700 16px system-ui,sans-serif;fill:#17252b}</style>
+  </defs>
+  <rect width="1200" height="680" fill="#fbfaf6"/>
+  <text x="55" y="56" class="title">三条铁律：违反即否定当前“标准推动浪”计数</text>
+  <text x="55" y="89" class="sub">铁律负责排除，不负责预测。第三条针对标准推动浪；对角线允许第 1、4 浪区域重叠。</text>
+
+  <g transform="translate(45 125)">
+    <rect width="350" height="500" rx="20" fill="#fff" stroke="#dedbd2"/>
+    <text x="22" y="38" class="head">① 第 2 浪不越过第 1 浪起点</text>
+    <rect x="20" y="65" width="310" height="165" rx="12" fill="url(#grid)"/>
+    <polyline class="wave" points="40,200 120,112 185,178 265,82 315,125"/>
+    <line class="limit" x1="35" y1="200" x2="210" y2="200"/>
+    <text x="36" y="221" class="small">第 1 浪起点</text><text x="286" y="100" class="ok">✓ 有效</text>
+    <g class="n" text-anchor="middle"><text x="120" y="100">1</text><text x="185" y="171">2</text><text x="265" y="74">3</text></g>
+    <rect x="20" y="260" width="310" height="165" rx="12" fill="url(#grid)"/>
+    <polyline class="bad" points="40,360 120,292 185,402 265,280 315,325"/>
+    <line class="limit" x1="35" y1="360" x2="210" y2="360"/>
+    <text x="36" y="382" class="small">起点被跌破</text><text x="286" y="286" class="no">× 无效</text>
+    <g class="n" text-anchor="middle"><text x="120" y="282">1</text><text x="185" y="421">2</text><text x="265" y="270">3</text></g>
+    <text x="22" y="466" class="small">等价表述：第 2 浪不能回撤第 1 浪的 100% 以上。</text>
+  </g>
+
+  <g transform="translate(425 125)">
+    <rect width="350" height="500" rx="20" fill="#fff" stroke="#dedbd2"/>
+    <text x="22" y="38" class="head">② 第 3 浪不能是最短</text>
+    <rect x="20" y="65" width="310" height="165" rx="12" fill="url(#grid)"/>
+    <polyline class="wave" points="38,204 92,166 125,187 224,88 257,133 315,76"/>
+    <text x="286" y="104" class="ok">✓ 有效</text>
+    <g class="n" text-anchor="middle"><text x="92" y="154">1</text><text x="125" y="208">2</text><text x="224" y="78">3</text><text x="257" y="154">4</text><text x="315" y="66">5</text></g>
+    <rect x="20" y="260" width="310" height="165" rx="12" fill="url(#grid)"/>
+    <polyline class="bad" points="38,397 118,321 150,355 188,317 222,361 315,274"/>
+    <text x="286" y="304" class="no">× 无效</text>
+    <g class="n" text-anchor="middle"><text x="118" y="310">1</text><text x="150" y="376">2</text><text x="188" y="307">3</text><text x="222" y="382">4</text><text x="315" y="264">5</text></g>
+    <text x="22" y="457" class="small">第 3 浪不一定最长；只要第 1 或第 5 浪更短即可。</text>
+    <text x="22" y="482" class="small">比较的是价格长度，不是持续时间或主观“力度”。</text>
+  </g>
+
+  <g transform="translate(805 125)">
+    <rect width="350" height="500" rx="20" fill="#fff" stroke="#dedbd2"/>
+    <text x="22" y="38" class="head">③ 第 4 浪不进入第 1 浪区域</text>
+    <rect x="20" y="65" width="310" height="165" rx="12" fill="url(#grid)"/>
+    <rect x="35" y="150" width="105" height="46" fill="#176b87" fill-opacity=".1" stroke="#176b87" stroke-dasharray="5 4"/>
+    <polyline class="wave" points="38,196 140,150 165,177 235,83 270,132 318,75"/>
+    <text x="285" y="104" class="ok">✓ 有效</text>
+    <g class="n" text-anchor="middle"><text x="140" y="139">1</text><text x="165" y="198">2</text><text x="235" y="73">3</text><text x="270" y="154">4</text><text x="318" y="65">5</text></g>
+    <rect x="20" y="260" width="310" height="165" rx="12" fill="url(#grid)"/>
+    <rect x="35" y="343" width="110" height="46" fill="#c75038" fill-opacity=".11" stroke="#c75038" stroke-dasharray="5 4"/>
+    <polyline class="bad" points="38,389 145,343 168,374 235,285 270,365 318,276"/>
+    <text x="285" y="304" class="no">× 无效</text>
+    <g class="n" text-anchor="middle"><text x="145" y="333">1</text><text x="168" y="395">2</text><text x="235" y="275">3</text><text x="270" y="386">4</text><text x="318" y="266">5</text></g>
+    <text x="22" y="457" class="small">这里的“区域”是第 1 浪的价格区间，不只是终点。</text>
+    <text x="22" y="482" class="small">对角线是结构性例外，不是“杠杆市场可放宽”。</text>
+  </g>
+</svg>

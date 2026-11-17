@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">推动浪的常见变体</title>
+  <desc id="desc">四个面板展示第三浪延伸、第五浪延伸、第五浪失败和终结对角线。</desc>
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#dedbd2" stroke-width="1"/></pattern>
+    <style>.title{font:700 34px system-ui,sans-serif;fill:#17252b}.sub{font:18px system-ui,sans-serif;fill:#52605f}.head{font:700 22px system-ui,sans-serif;fill:#17252b}.small{font:15px system-ui,sans-serif;fill:#52605f}.wave{fill:none;stroke:#176b87;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.inner{fill:none;stroke:#c75038;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.guide{fill:none;stroke:#7b817f;stroke-width:2;stroke-dasharray:7 6}.n{font:700 16px system-ui,sans-serif;fill:#17252b}</style>
+  </defs>
+  <rect width="1200" height="680" fill="#fbfaf6"/>
+  <text x="55" y="56" class="title">推动浪并不总长得“标准”：四种常见变体</text>
+  <text x="55" y="89" class="sub">延伸是某一个推动子浪内部拉长并显出五个更小子浪；失败浪和对角线常出现在趋势末段。</text>
+
+  <g transform="translate(55 125)">
+    <rect width="530" height="230" rx="18" fill="url(#grid)" stroke="#dedbd2"/>
+    <text x="20" y="34" class="head">第 3 浪延伸（股票指数中最常见）</text>
+    <polyline class="wave" points="25,198 95,150 130,175 415,62 452,108 505,50"/>
+    <polyline class="inner" points="130,175 185,135 220,150 290,105 326,121 415,62"/>
+    <g class="n" text-anchor="middle"><text x="95" y="138">1</text><text x="130" y="197">2</text><text x="415" y="51">3</text><text x="452" y="130">4</text><text x="505" y="40">5</text></g>
+    <g class="small" text-anchor="middle" fill="#c75038"><text x="185" y="126">i</text><text x="220" y="171">ii</text><text x="290" y="96">iii</text><text x="326" y="142">iv</text><text x="405" y="82">v</text></g>
+  </g>
+
+  <g transform="translate(615 125)">
+    <rect width="530" height="230" rx="18" fill="url(#grid)" stroke="#dedbd2"/>
+    <text x="20" y="34" class="head">第 5 浪延伸（趋势末段继续拉长）</text>
+    <polyline class="wave" points="25,198 92,157 128,180 225,103 264,137 505,48"/>
+    <polyline class="inner" points="264,137 315,105 347,121 400,82 433,98 505,48"/>
+    <g class="n" text-anchor="middle"><text x="92" y="146">1</text><text x="128" y="202">2</text><text x="225" y="92">3</text><text x="264" y="159">4</text><text x="505" y="38">5</text></g>
+    <g class="small" text-anchor="middle" fill="#c75038"><text x="315" y="96">i</text><text x="347" y="142">ii</text><text x="400" y="73">iii</text><text x="433" y="119">iv</text><text x="495" y="68">v</text></g>
+  </g>
+
+  <g transform="translate(55 385)">
+    <rect width="530" height="230" rx="18" fill="url(#grid)" stroke="#dedbd2"/>
+    <text x="20" y="34" class="head">第五浪失败（5 未越过 3 的终点）</text>
+    <polyline class="wave" points="25,198 105,146 145,175 270,58 330,132 430,82"/>
+    <line x1="270" y1="58" x2="505" y2="58" class="guide"/>
+    <path d="M430 82l-10-20m10 20 20-7" stroke="#c75038" stroke-width="4"/>
+    <g class="n" text-anchor="middle"><text x="105" y="134">1</text><text x="145" y="197">2</text><text x="270" y="48">3</text><text x="330" y="154">4</text><text x="430" y="72">5</text></g>
+    <text x="330" y="210" class="small">先确认浪 5 内部已完成五个子浪，不能只因“没创新高”就断言失败。</text>
+  </g>
+
+  <g transform="translate(615 385)">
+    <rect width="530" height="230" rx="18" fill="url(#grid)" stroke="#dedbd2"/>
+    <text x="20" y="34" class="head">终结对角线（第 1、4 浪允许重叠）</text>
+    <polyline class="wave" points="30,195 145,105 100,166 270,72 190,137 405,48"/>
+    <line x1="30" y1="195" x2="405" y2="48" class="guide"/>
+    <line x1="100" y1="166" x2="405" y2="90" class="guide"/>
+    <rect x="118" y="106" width="90" height="58" fill="#c75038" fill-opacity=".1" stroke="#c75038" stroke-dasharray="5 4"/>
+    <g class="n" text-anchor="middle"><text x="145" y="94">1</text><text x="100" y="188">2</text><text x="270" y="62">3</text><text x="190" y="159">4</text><text x="405" y="38">5</text></g>
+    <text x="288" y="210" class="small">楔形收敛；每一浪常呈三段结构，完成后警惕快速反转。</text>
+  </g>
+</svg>

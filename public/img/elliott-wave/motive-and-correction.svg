@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">标准五浪推动与三浪调整</title>
+  <desc id="desc">上升趋势由五个推动浪组成，之后出现A、B、C三个调整浪。</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#dedbd2" stroke-width="1"/></pattern>
+    <style>.title{font:700 34px system-ui,sans-serif;fill:#17252b}.sub{font:18px system-ui,sans-serif;fill:#52605f}.label{font:700 24px system-ui,sans-serif;fill:#17252b}.small{font:17px system-ui,sans-serif;fill:#52605f}.up{fill:none;stroke:#176b87;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}.down{fill:none;stroke:#c75038;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}.dotup{fill:#fbfaf6;stroke:#176b87;stroke-width:5}.dotdown{fill:#fbfaf6;stroke:#c75038;stroke-width:5}</style>
+  </defs>
+  <rect width="1200" height="680" fill="#fbfaf6"/>
+  <text x="60" y="58" class="title">标准循环：五浪推动 + 三浪调整</text>
+  <text x="60" y="91" class="sub">数字浪顺着上一层趋势推进，字母浪逆着上一层趋势修正；下跌趋势中的方向完全反转。</text>
+  <rect x="55" y="125" width="1090" height="445" rx="22" fill="url(#grid)" stroke="#dedbd2"/>
+  <path d="M55 125H760V570H55Z" fill="#176b87" fill-opacity=".035"/>
+  <path d="M760 125H1145V570H760Z" fill="#c75038" fill-opacity=".045"/>
+  <line x1="760" y1="125" x2="760" y2="570" stroke="#9ba09e" stroke-width="2" stroke-dasharray="8 8"/>
+  <polyline class="up" points="95,510 245,400 340,455 535,220 645,320 760,155"/>
+  <polyline class="down" points="760,155 880,340 965,265 1095,500"/>
+  <g>
+    <circle class="dotup" cx="95" cy="510" r="9"/><circle class="dotup" cx="245" cy="400" r="9"/><circle class="dotup" cx="340" cy="455" r="9"/><circle class="dotup" cx="535" cy="220" r="9"/><circle class="dotup" cx="645" cy="320" r="9"/><circle class="dotup" cx="760" cy="155" r="9"/>
+    <circle class="dotdown" cx="880" cy="340" r="9"/><circle class="dotdown" cx="965" cy="265" r="9"/><circle class="dotdown" cx="1095" cy="500" r="9"/>
+  </g>
+  <g class="label" text-anchor="middle">
+    <text x="95" y="548">0</text><text x="245" y="382">1</text><text x="340" y="493">2</text><text x="535" y="198">3</text><text x="645" y="358">4</text><text x="760" y="137">5</text>
+    <text x="880" y="379">A</text><text x="965" y="247">B</text><text x="1095" y="539">C</text>
+  </g>
+  <g transform="translate(80 595)">
+    <rect width="490" height="58" rx="14" fill="#176b87" fill-opacity=".1"/>
+    <text x="24" y="37" class="label" fill="#176b87">推动阶段：1、3、5 同向；2、4 逆向</text>
+  </g>
+  <g transform="translate(625 595)">
+    <rect width="490" height="58" rx="14" fill="#c75038" fill-opacity=".1"/>
+    <text x="34" y="37" class="label" fill="#c75038">调整阶段：A、C 逆势；B 暂时反弹</text>
+  </g>
+</svg>
